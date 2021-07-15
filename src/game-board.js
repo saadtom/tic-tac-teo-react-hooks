@@ -1,7 +1,7 @@
 import React, { useReducer } from "react";
 import calculateWinner from "./calculate-winner";
 
-function getStatus(squares, xIsNext) {
+const getStatus = (squares, xIsNext) => {
   const winner = calculateWinner(squares);
   if (winner) {
     return `Winner: ${winner}`;
@@ -12,7 +12,7 @@ function getStatus(squares, xIsNext) {
   }
 }
 
-function gameReducer(state, action) {
+const gameReducer = (state, action) => {
   const { squares, xIsNext } = state;
   switch (action.type) {
     case "SELECT_SQUARE": {
@@ -52,7 +52,6 @@ const Board = () => {
   };
 
   const selectSquare = (square) => {
-      console.log(square);
     dispatch({ type: "SELECT_SQUARE", square });
   };
 
